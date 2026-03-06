@@ -9,6 +9,7 @@ struct Photon {
     Vector2 velocity;
     std::vector<Vector2> history;
     bool active;
+    Color color;
 };
 
 

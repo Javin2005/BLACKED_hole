@@ -23,15 +23,15 @@ void DrawScene(const std::vector<Photon>& photons, const blackHole& bh){
                 float maxThickness = 5.0f;
                 for (size_t i = 0; i < photon.history.size() - 1; i+=1) {
                     float thickness = maxThickness * ((float)i / photon.history.size());
-                    Color c = Fade(WHITE, (float)i / photon.history.size());
+                    Color c = Fade(photon.color, (float)i / photon.history.size());
                     DrawLineEx(photon.history[i], photon.history[i + 1], thickness, c);
                 }
-                DrawLineEx(photon.history.back(), photon.position, maxThickness, WHITE);
+                DrawLineEx(photon.history.back(), photon.position, maxThickness, photon.color);
 
                 
             }
 
-            DrawCircleV(photon.position, 5, WHITE);
+            DrawCircleV(photon.position, 5, photon.color);
             
         }
     }
