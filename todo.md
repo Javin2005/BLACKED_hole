@@ -1,11 +1,11 @@
 
 
 ### Fas 1: Fundamentet (2D-rörelse) (A)
-Innan ni gör 3D och krökt rumtid måste ni ha ett system som kan flytta saker.
-- [ ] **Skapa en "Photon"-struct:** Definiera en partikel som har `Vector2 position` och `Vector2 velocity`.
-- [ ] **Skapa en huvudloop:** I `main.cpp`, rita en svart cirkel i mitten (det svarta hålet) och en liten vit prick (fotonen).
-- [ ] **Implementera konstant fart:** Få fotonen att röra sig i en rät linje över skärmen: `pos.x += vel.x; pos.y += vel.y;`.
-- [ ] **Hantera minne:** Se till att fotonen tas bort eller "dör" om den åker utanför skärmen.
+
+- [+] **Skapa en "Photon"-struct:** Definiera en partikel som har `Vector2 position` och `Vector2 velocity`.
+- [+] **Skapa en huvudloop:** I `main.cpp`, rita en svart cirkel i mitten (det svarta hålet) och en liten vit prick (fotonen).
+- [+] **Implementera konstant fart:** Få fotonen att röra sig i en rät linje över skärmen: `pos.x += vel.x; pos.y += vel.y;`.
+- [+] **Hantera minne:** Se till att fotonen tas bort eller "dör" om den åker utanför skärmen.
 
 ### Fas 2: Newtonsk Gravitation (Uppvärmning)
 Detta är inte "rätt" fysik för svarta hål, men det är nödvändigt för att lära sig hur man kodar krafter.
