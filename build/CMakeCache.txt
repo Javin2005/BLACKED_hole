@@ -15,6 +15,15 @@
 ########################
 
 //Value Computed by CMake
+Blacked_Hole_BINARY_DIR:STATIC=/Users/javinbejmar/Project/BLACKED_hole/build
+
+//Value Computed by CMake
+Blacked_Hole_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+Blacked_Hole_SOURCE_DIR:STATIC=/Users/javinbejmar/Project/BLACKED_hole
+
+//Value Computed by CMake
 Blacked_hole_BINARY_DIR:STATIC=/Users/javinbejmar/Project/BLACKED_hole/build
 
 //Value Computed by CMake
@@ -158,7 +167,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Blacked_hole
+CMAKE_PROJECT_NAME:STATIC=Blacked_Hole
 
 //Value Computed by CMake
 CMAKE_PROJECT_SPDX_LICENSE:STATIC=

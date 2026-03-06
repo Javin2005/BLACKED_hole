@@ -1,0 +1,1 @@
+find . -maxdepth 2 -name "*.cpp" -o -name "*.hpp" -o -name "CMakeLists.txt" | entr -r sh -c "cd build && cmake .. && make && ./Blacked_Hole"
