@@ -17,10 +17,19 @@ void DrawScene(const std::vector<Photon>& photons, const blackHole& bh){
 
     for(const auto& photon : photons) {
         if(photon.active) {
-            if (photon.history.size() > 1) {
-                DrawLineStrip(photon.history.data(), (int)photon.history.size(), WHITE);
-            }
+
             
+            if (photon.history.size() > 1) {
+                float maxThickness = 5.0f;
+                for (size_t i = 0; i < photon.history.size() - 1; i++) {
+                    float thickness = maxThickness * ((float)i / photon.history.size());
+                    DrawLineEx(photon.history[i], photon.history[i + 1], thickness, WHITE);
+                }
+                DrawLineEx(photon.history.back(), photon.position, maxThickness, WHITE);
+
+                
+            }
+
             DrawCircleV(photon.position, 5, WHITE);
             
         }

@@ -5,6 +5,7 @@
 #include "physics.hpp"   
 #include "graphics.hpp"  
 #include <vector>
+#include <string>
 
 int main() {
     InitWindow(800, 800, "Blacked hole");
@@ -29,6 +30,16 @@ int main() {
         if(IsKeyPressed(KEY_SPACE)){
             photons.clear();
         }
+        if(IsKeyPressed(KEY_UP)){
+            bh.mass += (double)200;
+        }
+        if(IsKeyPressed(KEY_DOWN)){
+            if(bh.mass > 200){
+                bh.mass -= (double)200;
+            }
+        }
+
+        DrawText(std::to_string(bh.mass).data(), 10, 10, 20, GREEN);
 
 
         UpdatePhysics(photons, bh);
