@@ -16,10 +16,11 @@ void DrawScene(const std::vector<Photon>& photons, const blackHole& bh){
     DrawCircleV(bh.position, bh.eventHorizonRadius, BLACK);
 
     for(const auto& photon : photons) {
-        if(photon.active && photon.history.size() > 1) {
-
-            DrawLineStrip(photon.history.data(), (int)photon.history.size(), WHITE);
-
+        if(photon.active) {
+            if (photon.history.size() > 1) {
+                DrawLineStrip(photon.history.data(), (int)photon.history.size(), WHITE);
+            }
+            
             DrawCircleV(photon.position, 5, WHITE);
             
         }
