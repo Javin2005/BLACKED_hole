@@ -15,7 +15,7 @@ int main() {
     
     for (int i = 0; i < 10; i++) {
         Photon tempPhoton;
-        tempPhoton.position = { 100, (float)(200 + i * 50) }; 
+        tempPhoton.position = { (float)(100 + 50* pow(-1,i)) , (float)(200 + i * 50) }; 
         tempPhoton.velocity = { 3, 0 };                       
         tempPhoton.active = true;
         
@@ -31,7 +31,17 @@ int main() {
 
     while (!WindowShouldClose()) {
 
-        
+        if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
+            Photon newPhoton;
+            newPhoton.position = GetMousePosition();
+            newPhoton.velocity = {3,0};
+            newPhoton.active = true;
+            photons.push_back(newPhoton);
+        }
+        if(IsKeyPressed(KEY_SPACE)){
+            photons.clear();
+        }
+
 
         for(auto& photon : photons) {
             if (photon.active) {
@@ -39,7 +49,7 @@ int main() {
                 float distance = Vector2Length(direction);
 
 
-                if (distance < bh.eventHorizonRadius) { 
+                if (distance < 10*bh.eventHorizonRadius) { 
                     photon.active = false;
                     continue;
                 }
@@ -50,6 +60,15 @@ int main() {
                 photon.velocity = Vector2Add(photon.velocity, acceleration);
                 photon.position = Vector2Add(photon.position, photon.velocity);
 
+            }
+
+            if (Vector2Length(photon.velocity) > C) {
+                photon.velocity = Vector2Scale(Vector2Normalize(photon.velocity), (float)C);
+            }
+
+            if(photon.position.x < 0 || photon.position.x > GetScreenWidth() || 
+            photon.position.y < 0 || photon.position.y > GetScreenHeight()) {
+                photon.active = false;
             }
         }
 
