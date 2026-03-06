@@ -8,11 +8,11 @@
 - [+] **Hantera minne:** Se till att fotonen tas bort eller "dör" om den åker utanför skärmen.
 
 ### Fas 2: Newtonsk Gravitation (Uppvärmning)
-Detta är inte "rätt" fysik för svarta hål, men det är nödvändigt för att lära sig hur man kodar krafter.
-- [ ] **Beräkna avstånd:** Räkna ut avståndet $r$ mellan fotonen och centrum.
-- [ ] **Implementera $1/r^2$:** Räkna ut en kraft som drar fotonen mot mitten. Ju närmare den är, desto starkare blir draget.
-- [ ] **Uppdatera Velocity:** Kraften ändrar fotonens *velocity*, som i sin tur ändrar dess *position*.
-- [ ] **Resultat:** Nu bör fotonen kunna "böja" sin bana runt cirkeln om den åker förbi nära.
+
+- [+] **Beräkna avstånd:** Räkna ut avståndet $r$ mellan fotonen och centrum.
+- [+] **Implementera $1/r^2$:** Räkna ut en kraft som drar fotonen mot mitten. Ju närmare den är, desto starkare blir draget.
+- [+] **Uppdatera Velocity:** Kraften ändrar fotonens *velocity*, som i sin tur ändrar dess *position*.
+- [x] **Resultat:** Nu bör fotonen kunna "böja" sin bana runt cirkeln om den åker förbi nära.
 
 ### Fas 3: Runge-Kutta (Noggrannhet)
 I C++ (och fysik) räcker det inte med `pos += vel`. Om man gör så, kommer partiklarna "skjuta iväg" felaktigt på grund av avrundningsfel.
