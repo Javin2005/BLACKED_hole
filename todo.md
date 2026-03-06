@@ -1,6 +1,6 @@
 
 
-### Fas 1: Fundamentet (2D-rörelse)
+### Fas 1: Fundamentet (2D-rörelse) (A)
 Innan ni gör 3D och krökt rumtid måste ni ha ett system som kan flytta saker.
 - [ ] **Skapa en "Photon"-struct:** Definiera en partikel som har `Vector2 position` och `Vector2 velocity`.
 - [ ] **Skapa en huvudloop:** I `main.cpp`, rita en svart cirkel i mitten (det svarta hålet) och en liten vit prick (fotonen).
