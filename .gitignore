@@ -1,55 +1,56 @@
-# Prerequisites
-*.d
+# --- Project Specific ---
+build/              # Allt som skapas när du kör 'cmake' och 'make'
+bin/                # Färdiga körbara filer
+lib/                # Om ni lägger externa bibliotek här manuellt
 
-# Object files
+# --- Compilation and Objects ---
 *.o
-*.ko
 *.obj
+*.d
 *.elf
-
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
 *.gch
 *.pch
 
-# Libraries
+# --- Executables and Libraries ---
+*.exe
+*.out
+*.app
+*.dylib
+*.so
+*.so.*
+*.dll
 *.lib
 *.a
 *.la
 *.lo
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+# --- CMake (Viktigt!) ---
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+install_manifest.txt
+Makefile
+_CPack_Packages/
+CPackConfig.cmake
+CPackSourceConfig.cmake
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+# --- IDEs (VS Code & Visual Studio) ---
+.vscode/            # Inställningar för editorn (ofta unika per dator)
+.vs/                # Visual Studio (Windows-vännens skräpfil)
+*.user
+*.suo
+*.sln
+*.vcxproj
+*.filters
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
+# --- OS Junk (Mac & Windows) ---
+.DS_Store           # Mac-specifik fil som skapas i varje mapp
+Desktop.ini         # Windows-motsvarighet
+Thumbs.db           # Windows miniatyrbilder
+
+# --- Debug & Logs ---
+*.log
+*.dSYM/             # Mac debug-symboler
 *.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
-
-# debug information files
-*.dwo
+*.idb
