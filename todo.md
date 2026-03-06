@@ -1,6 +1,4 @@
-Helt rätt att släppa tekniken ett tag och fokusera på planen! Här är en steg-för-steg-lista (To-Do) för hur ni faktiskt bygger själva simuleringen, från enklaste "prick på skärmen" till avancerad fysik.
 
----
 
 ### Fas 1: Fundamentet (2D-rörelse)
 Innan ni gör 3D och krökt rumtid måste ni ha ett system som kan flytta saker.
@@ -40,11 +38,3 @@ För att det ska se ut som på riktigt kan ni inte bara skjuta partiklar från s
 - [ ] **Doppler-skift:** (Överkurs) Gör ena sidan av disken blåare och ljusare, och den andra rödare, eftersom gasen snurrar mot/från oss.
 
 ---
-
-### Var ska ni börja IDAG?
-Börja med **Fas 1**. 
-1. Skapa en `Photon`-struct i en ny fil som heter `physics.hpp`.
-2. Försök få `main.cpp` att skapa en lista (`std::vector<Photon>`) med 10 fotoner som flyger över skärmen.
-3. Använd Raylibs `DrawPixelV` eller `DrawCircleV` för att rita dem.
-
-**Vill du ha ett kod-exempel på hur en "Photon-struct" och rörelse-loop ser ut i C++ för att kickstarta?**
