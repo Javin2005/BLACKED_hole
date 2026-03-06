@@ -5,8 +5,8 @@ int main() {
     while (!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(WHITE);
-        DrawCircle(400, 225, 50, BLACK); 
-        DrawText("Grattis! Raylib funkar.", 10, 10, 20, GREEN);
+        DrawCircle(400, 225, 50, BLACK);
+        DrawCircle(300, 225, 5, GREEN);
         EndDrawing();
     }
     CloseWindow();
