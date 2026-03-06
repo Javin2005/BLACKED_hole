@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/Blacked_Hole.dir/src/graphics.cpp.o CMakeFiles/Blacked_Hole.dir/src/main.cpp.o CMakeFiles/Blacked_Hole.dir/src/physics.cpp.o -o Blacked_Hole  /opt/homebrew/lib/libraylib.dylib
