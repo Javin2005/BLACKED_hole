@@ -12,12 +12,15 @@ int main() {
 
     std::vector<Photon> photons;
 
-    Photon p;
-    p.position = {100,400};
-    p.velocity = {2,0};
-    p.active = true;
-
-    photons.push_back(p);
+    
+    for (int i = 0; i < 10; i++) {
+        Photon tempPhoton;
+        tempPhoton.position = { 100, (float)(200 + i * 50) }; 
+        tempPhoton.velocity = { 3, 0 };                       
+        tempPhoton.active = true;
+        
+        photons.push_back(tempPhoton);
+    }
 
     blackHole bh;
     bh.position = { 400, 400 };
@@ -36,7 +39,7 @@ int main() {
                 float distance = Vector2Length(direction);
 
 
-                if (distance < 20.0f) { 
+                if (distance < bh.eventHorizonRadius) { 
                     photon.active = false;
                     continue;
                 }
@@ -53,8 +56,8 @@ int main() {
 
         BeginDrawing();
         ClearBackground(BLACK);
-        DrawCircleV(bh.position, 55, GRAY);
-        DrawCircleV(bh.position,50,BLACK);
+        DrawCircleV(bh.position, bh.eventHorizonRadius + 5, GRAY);
+        DrawCircleV(bh.position,bh.eventHorizonRadius,BLACK);
 
         for(auto& photon: photons) {
             if(photon.active) {
