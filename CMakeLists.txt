@@ -1,22 +1,19 @@
 cmake_minimum_required(VERSION 3.10)
-project(Blacked_hole)
+project(Blacked_Hole)
 
 set(CMAKE_CXX_STANDARD 17)
 
-# Berätta för CMake att leta i Homebrew-mappen på Mac
+# --- DETTA GÖR ATT DET FUNKAR FÖR BÅDA ---
 if(APPLE)
     list(APPEND CMAKE_PREFIX_PATH "/opt/homebrew")
+elseif(WIN32)
+    # Detta pekar på mappen som skapades i Steg 1
+    list(APPEND CMAKE_PREFIX_PATH "C:/raylib/raylib/lib/cmake/raylib")
 endif()
 
 find_package(raylib REQUIRED)
 
-# Inkludera mappar
 include_directories(include)
-include_directories(/opt/homebrew/include) # Extra säkerhet för Mac
-
 file(GLOB SOURCES "src/*.cpp")
-
 add_executable(Blacked_Hole ${SOURCES})
-
-# Länka biblioteket
 target_link_libraries(Blacked_Hole raylib)
