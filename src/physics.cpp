@@ -12,6 +12,13 @@
 void UpdatePhysics(std::vector<Photon>& photons, const blackHole& bh) {
     for(auto& photon: photons){
         if(photon.active){
+            photon.history.push_back(photon.position);
+
+            if (photon.history.size() > 100) {
+                photon.history.erase(photon.history.begin()); 
+            }
+
+
             Vector2 direction = Vector2Subtract(bh.position, photon.position);
             double distance = Vector2Length(direction);
 
@@ -28,7 +35,10 @@ void UpdatePhysics(std::vector<Photon>& photons, const blackHole& bh) {
                 photon.velocity = Vector2Scale(Vector2Normalize(photon.velocity), (float)C);
             }
 
+
+            
             photon.position = Vector2Add(photon.position, photon.velocity);
+            
 
             if(photon.position.x < 0 || photon.position.x > 800 || 
                 photon.position.y < 0 || photon.position.y > 800) {
