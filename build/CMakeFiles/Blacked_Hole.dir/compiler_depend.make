@@ -755,8 +755,11 @@ CMakeFiles/Blacked_Hole.dir/src/main.cpp.o: /Users/javinbejmar/Project/BLACKED_h
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdarg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
+  /Users/javinbejmar/Project/BLACKED_hole/include/BlackHole.hpp \
+  /Users/javinbejmar/Project/BLACKED_hole/include/constants.hpp \
   /Users/javinbejmar/Project/BLACKED_hole/include/photon.hpp \
-  /opt/homebrew/include/raylib.h
+  /opt/homebrew/include/raylib.h \
+  /opt/homebrew/include/raymath.h
 
 CMakeFiles/Blacked_Hole.dir/src/physics.cpp.o: /Users/javinbejmar/Project/BLACKED_hole/src/physics.cpp
 
@@ -764,6 +767,8 @@ CMakeFiles/Blacked_Hole.dir/src/physics.cpp.o: /Users/javinbejmar/Project/BLACKE
 /Users/javinbejmar/Project/BLACKED_hole/src/physics.cpp:
 
 /Users/javinbejmar/Project/BLACKED_hole/include/photon.hpp:
+
+/Users/javinbejmar/Project/BLACKED_hole/include/BlackHole.hpp:
 
 /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stddef.h:
 
@@ -1425,6 +1430,8 @@ CMakeFiles/Blacked_Hole.dir/src/physics.cpp.o: /Users/javinbejmar/Project/BLACKE
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/empty.h:
 
+/Users/javinbejmar/Project/BLACKED_hole/include/constants.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_time_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/ostream.h:
@@ -1622,6 +1629,8 @@ CMakeFiles/Blacked_Hole.dir/src/physics.cpp.o: /Users/javinbejmar/Project/BLACKE
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/max_element.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__concepts/copyable.h:
+
+/opt/homebrew/include/raymath.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/replace_copy_if.h:
 
