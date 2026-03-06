@@ -14,7 +14,7 @@ void UpdatePhysics(std::vector<Photon>& photons, const blackHole& bh) {
         if(photon.active){
             photon.history.push_back(photon.position);
 
-            if (photon.history.size() > 100) {
+            if (photon.history.size() > 75) {
                 photon.history.erase(photon.history.begin()); 
             }
 
