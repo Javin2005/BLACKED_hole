@@ -2,16 +2,16 @@
 
 ### Fas 1: Fundamentet (2D-rörelse) (A)
 
-- [+] **Skapa en "Photon"-struct:** Definiera en partikel som har `Vector2 position` och `Vector2 velocity`.
-- [+] **Skapa en huvudloop:** I `main.cpp`, rita en svart cirkel i mitten (det svarta hålet) och en liten vit prick (fotonen).
-- [+] **Implementera konstant fart:** Få fotonen att röra sig i en rät linje över skärmen: `pos.x += vel.x; pos.y += vel.y;`.
-- [+] **Hantera minne:** Se till att fotonen tas bort eller "dör" om den åker utanför skärmen.
+- [x] **Skapa en "Photon"-struct:** Definiera en partikel som har `Vector2 position` och `Vector2 velocity`.
+- [x] **Skapa en huvudloop:** I `main.cpp`, rita en svart cirkel i mitten (det svarta hålet) och en liten vit prick (fotonen).
+- [x] **Implementera konstant fart:** Få fotonen att röra sig i en rät linje över skärmen: `pos.x += vel.x; pos.y += vel.y;`.
+- [x] **Hantera minne:** Se till att fotonen tas bort eller "dör" om den åker utanför skärmen.
 
 ### Fas 2: Newtonsk Gravitation (Uppvärmning)
 
-- [+] **Beräkna avstånd:** Räkna ut avståndet $r$ mellan fotonen och centrum.
-- [+] **Implementera $1/r^2$:** Räkna ut en kraft som drar fotonen mot mitten. Ju närmare den är, desto starkare blir draget.
-- [+] **Uppdatera Velocity:** Kraften ändrar fotonens *velocity*, som i sin tur ändrar dess *position*.
+- [x] **Beräkna avstånd:** Räkna ut avståndet $r$ mellan fotonen och centrum.
+- [x] **Implementera $1/r^2$:** Räkna ut en kraft som drar fotonen mot mitten. Ju närmare den är, desto starkare blir draget.
+- [x] **Uppdatera Velocity:** Kraften ändrar fotonens *velocity*, som i sin tur ändrar dess *position*.
 - [x] **Resultat:** Nu bör fotonen kunna "böja" sin bana runt cirkeln om den åker förbi nära.
 
 ### Fas 3: Runge-Kutta (Noggrannhet)
