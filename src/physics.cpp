@@ -10,47 +10,39 @@
  * 
  * */ 
 void UpdatePhysics(std::vector<Photon>& photons, const blackHole& bh, float dt, bool saveHistory) {
-    for(auto& photon: photons){
-        if(photon.active){
-            
-            
-            if(saveHistory) {
-                photon.history.push_back(photon.position);
-                if (photon.history.size() > 150) photon.history.erase(photon.history.begin());
-            }
+    for(auto& photon : photons) {
+        if(!photon.active) continue;
 
-            //Hastighet och direction just nu, kan ändra de senare för mer realism
-            Vector2 direction = Vector2Subtract(bh.position, photon.position);
-            double distance = Vector2Length(direction);
+        if(saveHistory) photon.savePosition();
 
-            if(distance < bh.eventHorizonRadius){
-                photon.active = false;
-                continue;
-            }
+        Vector2 diff = Vector2Subtract(bh.position, photon.position);
+        float distSq = diff.x * diff.x + diff.y * diff.y; 
+        float dist = sqrtf(distSq);
 
+        if(dist < bh.eventHorizonRadius) {
+            photon.active = false;
+            continue;
+        }
 
+        
+        double force = (bh.mass * G) / distSq;
+        force += (3.0 * bh.mass * G * 600.0) / (distSq * distSq);
+        
+        Vector2 acc = Vector2Scale(diff, (float)(force / dist)); 
+        photon.velocity = Vector2Add(photon.velocity, Vector2Scale(acc, dt));
 
-            // Hur svarta hålet påverkar photonen just nu bättre fysik senare trust
-            double d2 = distance * distance;
-            double d4 = d2 * d2;
-            double force = (bh.mass * G) / d2;
-            force += (3.0 * bh.mass * G * 600.0) / d4; // <-- för dum för den riktiga matten Samuel cook
-            Vector2 acceleration = Vector2Scale(Vector2Normalize(direction), force);
-            photon.velocity = Vector2Add(photon.velocity, Vector2Scale(acceleration, dt));
+        
+        float speed = Vector2Length(photon.velocity);
+        if(speed > C) {
+            photon.velocity = Vector2Scale(photon.velocity, (float)C / speed);
+        }
 
-            
-            if(Vector2Length(photon.velocity) > C) {
-                photon.velocity = Vector2Scale(Vector2Normalize(photon.velocity), C);
-            }
+        photon.position = Vector2Add(photon.position, Vector2Scale(photon.velocity, dt));
 
-           
-            photon.position = Vector2Add(photon.position, Vector2Scale(photon.velocity, dt));
-            
-
-            if(photon.position.x < -200 || photon.position.x > 1000 || 
-               photon.position.y < -200 || photon.position.y > 1000) {
-                 photon.active = false;
-            }
+        
+        if(photon.position.x < -100 || photon.position.x > 900 || 
+           photon.position.y < -100 || photon.position.y > 900) {
+             photon.active = false;
         }
     }
 }
@@ -85,6 +77,7 @@ void UpdatePhysics(std::vector<Photon>& photons, const blackHole& bh, float dt, 
         Color diskColors[] = {ORANGE, GOLD, YELLOW, RED, BLUE};
         Color randomColor = diskColors[GetRandomValue(0, 4)];
 
-        photons.push_back({ pos, vel, {}, true, randomColor, false });
+        photons.push_back({ pos, vel, {}, 0, 0, true, randomColor, false });
+        
     }
 }

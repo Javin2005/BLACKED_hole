@@ -21,32 +21,39 @@ void DrawScene(const std::vector<Photon>& photons, const blackHole& bh){
 
     BeginBlendMode(BLEND_ADDITIVE);
     for(const auto& photon : photons) {
-        if(photon.active) {
+        if(!photon.active) continue;
+        
 
-            float dist = Vector2Distance(photon.position, bh.position);
+        float dist = Vector2Distance(photon.position, bh.position);
+        Color renderColor = GetSpaceColor(photon.baseColor, photon.velocity, dist, bh.eventHorizonRadius);
 
 
-            Color renderColor = GetSpaceColor(photon.baseColor, photon.velocity, dist, bh.eventHorizonRadius);
+        if (photon.historyCount > 1) {
+            float maxThickness = 4.0f;
 
 
-            if (photon.history.size() > 1) {
-                float maxThickness = 4.0f;
-                for (size_t i = 0; i < photon.history.size() - 1; i++) {
-                    float thickness = maxThickness * ((float)i / photon.history.size());
+            for (int i = 0; i < photon.historyCount - 1; i++) {
 
-                    Color tailColor = Fade(renderColor, (float)i / photon.history.size());
-                    DrawLineEx(photon.history[i], photon.history[i + 1], thickness, tailColor);
-                }
-                DrawLineEx(photon.history.back(), photon.position, maxThickness, renderColor);
+                int currIdx = (photon.historyIndex - photon.historyCount + i + MAX_HISTORY) % MAX_HISTORY;
+                int nextIdx = (currIdx + 1) % MAX_HISTORY;
 
-                
+                float t = (float)i / MAX_HISTORY;
+                float thickness = maxThickness * t;
+                Color tailColor = Fade(renderColor, t);
+                DrawLineEx(photon.history[currIdx], photon.history[nextIdx], thickness, tailColor);
+
             }
+            int lastIdx = (photon.historyIndex - 1 + MAX_HISTORY) % MAX_HISTORY;
+            DrawLineEx(photon.history[lastIdx], photon.position, maxThickness, renderColor);
 
-            if(photon.body){
-                DrawCircleV(photon.position, 4, renderColor);
-            }
             
         }
+
+        if(photon.body){
+            DrawCircleV(photon.position, 4, renderColor);
+        }
+            
+        
     }
 
     EndBlendMode();
