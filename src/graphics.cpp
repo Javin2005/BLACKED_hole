@@ -31,7 +31,9 @@ void DrawScene(const std::vector<Photon>& photons, const blackHole& bh){
                 
             }
 
-            DrawCircleV(photon.position, 5, photon.color);
+            if(photon.body){
+                DrawCircleV(photon.position, 5, photon.color);
+            }
             
         }
     }

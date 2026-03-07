@@ -10,6 +10,7 @@ struct Photon {
     std::vector<Vector2> history;
     bool active;
     Color color;
+    bool body;
 };
 
 

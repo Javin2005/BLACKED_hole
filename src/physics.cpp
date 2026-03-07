@@ -72,7 +72,7 @@ void UpdatePhysics(std::vector<Photon>& photons, const blackHole& bh, float dt, 
         float newtonianSpeed = sqrt((G * bh.mass) / dist);
         
         float relativisticCorrection = 1.0f + (bh.eventHorizonRadius / dist); 
-        float speed = newtonianSpeed * relativisticCorrection * 1.2f; 
+        float speed = newtonianSpeed * relativisticCorrection * 1.09f; 
 
         Vector2 vel = {
             -sinf(angle) * speed, 
