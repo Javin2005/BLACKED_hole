@@ -13,12 +13,13 @@ void UpdatePhysics(std::vector<Photon>& photons, const blackHole& bh, float dt, 
     for(auto& photon: photons){
         if(photon.active){
             
-
+            
             if(saveHistory) {
                 photon.history.push_back(photon.position);
                 if (photon.history.size() > 150) photon.history.erase(photon.history.begin());
             }
 
+            //Hastighet och direction just nu, kan ändra de senare för mer realism
             Vector2 direction = Vector2Subtract(bh.position, photon.position);
             double distance = Vector2Length(direction);
 
@@ -27,13 +28,12 @@ void UpdatePhysics(std::vector<Photon>& photons, const blackHole& bh, float dt, 
                 continue;
             }
 
-            
+
+
+            // Hur svarta hålet påverkar photonen just nu bättre fysik senare trust
             double force = (bh.mass * G) / (distance * distance);
             force += (3.0 * bh.mass * G * 600.0) / (pow(distance, 4)); // <-- för dum för den riktiga matten Samuel cook
-
             Vector2 acceleration = Vector2Scale(Vector2Normalize(direction), force);
-
-            
             photon.velocity = Vector2Add(photon.velocity, Vector2Scale(acceleration, dt));
 
             
@@ -45,8 +45,8 @@ void UpdatePhysics(std::vector<Photon>& photons, const blackHole& bh, float dt, 
             photon.position = Vector2Add(photon.position, Vector2Scale(photon.velocity, dt));
             
 
-            if(photon.position.x < 0 || photon.position.x > 800 || 
-               photon.position.y < 0 || photon.position.y > 800) {
+            if(photon.position.x < -200 || photon.position.x > 1000 || 
+               photon.position.y < -200 || photon.position.y > 1000) {
                  photon.active = false;
             }
         }
@@ -80,9 +80,9 @@ void UpdatePhysics(std::vector<Photon>& photons, const blackHole& bh, float dt, 
         };
 
         
-        Color diskColors[] = {ORANGE, GOLD, YELLOW, RED};
-        Color randomColor = diskColors[GetRandomValue(0, 3)];
+        Color diskColors[] = {ORANGE, GOLD, YELLOW, RED, BLUE};
+        Color randomColor = diskColors[GetRandomValue(0, 4)];
 
-        photons.push_back({ pos, vel, {}, true, randomColor });
+        photons.push_back({ pos, vel, {}, true, randomColor, false });
     }
 }

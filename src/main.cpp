@@ -6,6 +6,7 @@
 #include "graphics.hpp"  
 #include <vector>
 #include <string>
+#include <algorithm>
 
 
 int main() {
@@ -17,10 +18,10 @@ int main() {
 
     
     for (int i = 0; i < 10; i++) {
-        photons.push_back({ {(float)(100 + 50*pow(-1,i)), (float)(200 + i*50*pow(-1,i))}, {250, 0}, {}, true, WHITE});
+        photons.push_back({ {(float)(100 + 50*pow(-1,i)), (float)(200 + i*50*pow(-1,i))}, {250, 0}, {}, true, WHITE,true});
     }
 
-    blackHole bh = { {400, 400}, 2000.0, 0, true };
+    blackHole bh = { {400, 400}, 10000.0, 0, true };
     bh.eventHorizonRadius = (double)((2.0 * G * bh.mass) / (C * C));
 
     while (!WindowShouldClose()) {
@@ -40,11 +41,20 @@ int main() {
         bh.mass -= 20;
         bh.eventHorizonRadius = (double)((2.0 * G * bh.mass) / (C * C));
         }
-        if(IsKeyDown(KEY_D)){
-            SpawnDisk(photons,bh,20);
+        if(IsKeyPressed(KEY_D)){
+            SpawnDisk(photons,bh,50);
         }
 
-        ;
+        if (IsKeyDown(KEY_P)) {
+            bh.position = GetMousePosition();
+        }
+
+       
+        if(photons.size() > 1000) {
+            photons.erase(std::remove_if(photons.begin(), photons.end(), 
+                            [](const Photon& p) { return !p.active;}), photons.end());
+        }
+        
 
 
         DrawText(std::to_string(bh.mass).data(), 10, 10, 20, GREEN);

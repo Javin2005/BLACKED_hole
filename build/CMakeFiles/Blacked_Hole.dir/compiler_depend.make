@@ -754,9 +754,11 @@ CMakeFiles/Blacked_Hole.dir/src/graphics.cpp.o: /Users/javinbejmar/Project/BLACK
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
   /Users/javinbejmar/Project/BLACKED_hole/include/BlackHole.hpp \
+  /Users/javinbejmar/Project/BLACKED_hole/include/constants.hpp \
   /Users/javinbejmar/Project/BLACKED_hole/include/graphics.hpp \
   /Users/javinbejmar/Project/BLACKED_hole/include/photon.hpp \
-  /opt/homebrew/include/raylib.h
+  /opt/homebrew/include/raylib.h \
+  /opt/homebrew/include/raymath.h
 
 CMakeFiles/Blacked_Hole.dir/src/main.cpp.o: /Users/javinbejmar/Project/BLACKED_hole/src/main.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
