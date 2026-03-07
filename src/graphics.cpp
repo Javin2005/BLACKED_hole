@@ -4,7 +4,7 @@
 
 /** 
  * Draws a Scene(frame) of the space we see
- * @param photons - a mutable vector of the active and unactive photons
+ * @param photolns - a mutable vector of the active and unactive photons
  * @param blackHole - a blackHole object
  * 
  * */ 

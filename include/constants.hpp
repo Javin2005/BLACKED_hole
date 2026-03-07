@@ -2,7 +2,7 @@
 #define CONSTANTS_HPP
 
 //Väljer vår c och g så att den faktist fungerar på skärmen
-const double G = 1.0;    
-const double C = 300.0;    
+const double G = 500.0;    
+const double C = 1000.0;    
 
 #endif

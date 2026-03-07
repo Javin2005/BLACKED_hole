@@ -5,7 +5,7 @@
 #include "photon.hpp"
 #include "BlackHole.hpp"
 
-void UpdatePhysics(std::vector<Photon>& photons, const blackHole& bh, float dt);
+void UpdatePhysics(std::vector<Photon>& photons, const blackHole& bh, float dt, bool saveHistory);
 void SpawnDisk(std::vector<Photon>& photons, const blackHole& bh, int count);
 
 #endif
