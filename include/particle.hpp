@@ -1,5 +1,5 @@
 #ifndef PARTICLE_HPP
-#define PHOTON_HPP
+#define PARTICLE_HPP
 
 #include "raylib.h"
 //märkte det var lite crazy att börja med particlar redan men sen kanske

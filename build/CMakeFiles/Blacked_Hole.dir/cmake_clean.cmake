@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "Blacked_Hole.pdb"
   "CMakeFiles/Blacked_Hole.dir/src/graphics.cpp.o"
   "CMakeFiles/Blacked_Hole.dir/src/graphics.cpp.o.d"
+  "CMakeFiles/Blacked_Hole.dir/src/input.cpp.o"
+  "CMakeFiles/Blacked_Hole.dir/src/input.cpp.o.d"
   "CMakeFiles/Blacked_Hole.dir/src/main.cpp.o"
   "CMakeFiles/Blacked_Hole.dir/src/main.cpp.o.d"
   "CMakeFiles/Blacked_Hole.dir/src/physics.cpp.o"

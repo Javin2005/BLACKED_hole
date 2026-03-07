@@ -3,10 +3,12 @@
 #include "BlackHole.hpp"
 #include "constants.hpp"
 #include "physics.hpp"   
-#include "graphics.hpp"  
+#include "graphics.hpp" 
+#include "input.hpp" 
 #include <vector>
 #include <string>
 #include <algorithm>
+
 
 
 int main() {
@@ -26,29 +28,7 @@ int main() {
 
     while (!WindowShouldClose()) {
 
-        if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
-            photons.push_back({ GetMousePosition(), {200,0}, {},true, WHITE});
-        }
-        if(IsKeyPressed(KEY_SPACE)){
-            photons.clear();
-        }
-        if(IsKeyDown(KEY_UP)) {
-            bh.mass += 20;
-            bh.eventHorizonRadius = (double)((2.0 * G * bh.mass) / (C * C));
-        }
-
-        if(IsKeyDown(KEY_DOWN) && bh.mass > 100) {
-        bh.mass -= 20;
-        bh.eventHorizonRadius = (double)((2.0 * G * bh.mass) / (C * C));
-        }
-        if(IsKeyPressed(KEY_D)){
-            SpawnDisk(photons,bh,50);
-        }
-
-        if (IsKeyDown(KEY_P)) {
-            bh.position = GetMousePosition();
-        }
-
+        HandleInput(photons,bh);
        
         if(photons.size() > 1000) {
             photons.erase(std::remove_if(photons.begin(), photons.end(), 

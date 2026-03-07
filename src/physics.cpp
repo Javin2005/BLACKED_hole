@@ -31,8 +31,10 @@ void UpdatePhysics(std::vector<Photon>& photons, const blackHole& bh, float dt, 
 
 
             // Hur svarta hålet påverkar photonen just nu bättre fysik senare trust
-            double force = (bh.mass * G) / (distance * distance);
-            force += (3.0 * bh.mass * G * 600.0) / (pow(distance, 4)); // <-- för dum för den riktiga matten Samuel cook
+            double d2 = distance * distance;
+            double d4 = d2 * d2;
+            double force = (bh.mass * G) / d2;
+            force += (3.0 * bh.mass * G * 600.0) / d4; // <-- för dum för den riktiga matten Samuel cook
             Vector2 acceleration = Vector2Scale(Vector2Normalize(direction), force);
             photon.velocity = Vector2Add(photon.velocity, Vector2Scale(acceleration, dt));
 

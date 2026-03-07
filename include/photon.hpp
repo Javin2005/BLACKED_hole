@@ -4,6 +4,7 @@
 #include "raylib.h"
 #include <vector>
 
+
 struct Photon {
     Vector2 position;
     Vector2 velocity;

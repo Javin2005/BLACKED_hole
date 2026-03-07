@@ -86,10 +86,24 @@ CMakeFiles/Blacked_Hole.dir/src/graphics.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Blacked_Hole.dir/src/graphics.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/javinbejmar/Project/BLACKED_hole/src/graphics.cpp -o CMakeFiles/Blacked_Hole.dir/src/graphics.cpp.s
 
+CMakeFiles/Blacked_Hole.dir/src/input.cpp.o: CMakeFiles/Blacked_Hole.dir/flags.make
+CMakeFiles/Blacked_Hole.dir/src/input.cpp.o: /Users/javinbejmar/Project/BLACKED_hole/src/input.cpp
+CMakeFiles/Blacked_Hole.dir/src/input.cpp.o: CMakeFiles/Blacked_Hole.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/javinbejmar/Project/BLACKED_hole/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Blacked_Hole.dir/src/input.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blacked_Hole.dir/src/input.cpp.o -MF CMakeFiles/Blacked_Hole.dir/src/input.cpp.o.d -o CMakeFiles/Blacked_Hole.dir/src/input.cpp.o -c /Users/javinbejmar/Project/BLACKED_hole/src/input.cpp
+
+CMakeFiles/Blacked_Hole.dir/src/input.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Blacked_Hole.dir/src/input.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/javinbejmar/Project/BLACKED_hole/src/input.cpp > CMakeFiles/Blacked_Hole.dir/src/input.cpp.i
+
+CMakeFiles/Blacked_Hole.dir/src/input.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Blacked_Hole.dir/src/input.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/javinbejmar/Project/BLACKED_hole/src/input.cpp -o CMakeFiles/Blacked_Hole.dir/src/input.cpp.s
+
 CMakeFiles/Blacked_Hole.dir/src/main.cpp.o: CMakeFiles/Blacked_Hole.dir/flags.make
 CMakeFiles/Blacked_Hole.dir/src/main.cpp.o: /Users/javinbejmar/Project/BLACKED_hole/src/main.cpp
 CMakeFiles/Blacked_Hole.dir/src/main.cpp.o: CMakeFiles/Blacked_Hole.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/javinbejmar/Project/BLACKED_hole/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Blacked_Hole.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/javinbejmar/Project/BLACKED_hole/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Blacked_Hole.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blacked_Hole.dir/src/main.cpp.o -MF CMakeFiles/Blacked_Hole.dir/src/main.cpp.o.d -o CMakeFiles/Blacked_Hole.dir/src/main.cpp.o -c /Users/javinbejmar/Project/BLACKED_hole/src/main.cpp
 
 CMakeFiles/Blacked_Hole.dir/src/main.cpp.i: cmake_force
@@ -103,7 +117,7 @@ CMakeFiles/Blacked_Hole.dir/src/main.cpp.s: cmake_force
 CMakeFiles/Blacked_Hole.dir/src/physics.cpp.o: CMakeFiles/Blacked_Hole.dir/flags.make
 CMakeFiles/Blacked_Hole.dir/src/physics.cpp.o: /Users/javinbejmar/Project/BLACKED_hole/src/physics.cpp
 CMakeFiles/Blacked_Hole.dir/src/physics.cpp.o: CMakeFiles/Blacked_Hole.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/javinbejmar/Project/BLACKED_hole/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Blacked_Hole.dir/src/physics.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/javinbejmar/Project/BLACKED_hole/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Blacked_Hole.dir/src/physics.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Blacked_Hole.dir/src/physics.cpp.o -MF CMakeFiles/Blacked_Hole.dir/src/physics.cpp.o.d -o CMakeFiles/Blacked_Hole.dir/src/physics.cpp.o -c /Users/javinbejmar/Project/BLACKED_hole/src/physics.cpp
 
 CMakeFiles/Blacked_Hole.dir/src/physics.cpp.i: cmake_force
@@ -117,6 +131,7 @@ CMakeFiles/Blacked_Hole.dir/src/physics.cpp.s: cmake_force
 # Object files for target Blacked_Hole
 Blacked_Hole_OBJECTS = \
 "CMakeFiles/Blacked_Hole.dir/src/graphics.cpp.o" \
+"CMakeFiles/Blacked_Hole.dir/src/input.cpp.o" \
 "CMakeFiles/Blacked_Hole.dir/src/main.cpp.o" \
 "CMakeFiles/Blacked_Hole.dir/src/physics.cpp.o"
 
@@ -124,12 +139,13 @@ Blacked_Hole_OBJECTS = \
 Blacked_Hole_EXTERNAL_OBJECTS =
 
 Blacked_Hole: CMakeFiles/Blacked_Hole.dir/src/graphics.cpp.o
+Blacked_Hole: CMakeFiles/Blacked_Hole.dir/src/input.cpp.o
 Blacked_Hole: CMakeFiles/Blacked_Hole.dir/src/main.cpp.o
 Blacked_Hole: CMakeFiles/Blacked_Hole.dir/src/physics.cpp.o
 Blacked_Hole: CMakeFiles/Blacked_Hole.dir/build.make
 Blacked_Hole: /opt/homebrew/lib/libraylib.dylib
 Blacked_Hole: CMakeFiles/Blacked_Hole.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/javinbejmar/Project/BLACKED_hole/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Blacked_Hole"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/javinbejmar/Project/BLACKED_hole/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Blacked_Hole"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Blacked_Hole.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
