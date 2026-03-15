@@ -1,8 +1,8 @@
-#include "input.hpp"
-#include "physics.hpp"
+#include "2d/input.hpp"
+#include "2d/physics.hpp"
 #include <vector>
-#include "photon.hpp"
-#include "BlackHole.hpp"
+#include "2d/photon.hpp"
+#include "2d/BlackHole.hpp"
 
 
 
@@ -26,5 +26,17 @@ void HandleInput(std::vector<Photon>& photons, blackHole& bh){
 
     if (IsKeyDown(KEY_P)) {
         bh.position = GetMousePosition();
+    }
+
+    if(IsKeyPressed(KEY_F)){
+        int display = GetCurrentMonitor();
+
+        if (IsWindowFullscreen()) {
+            SetWindowSize(800, 800); 
+        } 
+        else {
+            SetWindowSize(GetMonitorWidth(display), GetMonitorHeight(display));
+        }
+        ToggleFullscreen();
     }
 }

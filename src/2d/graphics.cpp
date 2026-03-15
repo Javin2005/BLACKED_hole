@@ -1,7 +1,7 @@
-#include "graphics.hpp"
+#include "2d/graphics.hpp"
 #include "raylib.h"
-#include "photon.hpp"
-#include "constants.hpp"
+#include "2d/photon.hpp"
+#include "2d/constants.hpp"
 #include <cmath>
 #include "raymath.h"
 

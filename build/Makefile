@@ -129,101 +129,101 @@ Blacked_Hole/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/build
 .PHONY : Blacked_Hole/fast
 
-src/graphics.o: src/graphics.cpp.o
-.PHONY : src/graphics.o
+src/3d/graphics.o: src/3d/graphics.cpp.o
+.PHONY : src/3d/graphics.o
 
 # target to build an object file
-src/graphics.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/graphics.cpp.o
-.PHONY : src/graphics.cpp.o
+src/3d/graphics.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/3d/graphics.cpp.o
+.PHONY : src/3d/graphics.cpp.o
 
-src/graphics.i: src/graphics.cpp.i
-.PHONY : src/graphics.i
+src/3d/graphics.i: src/3d/graphics.cpp.i
+.PHONY : src/3d/graphics.i
 
 # target to preprocess a source file
-src/graphics.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/graphics.cpp.i
-.PHONY : src/graphics.cpp.i
+src/3d/graphics.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/3d/graphics.cpp.i
+.PHONY : src/3d/graphics.cpp.i
 
-src/graphics.s: src/graphics.cpp.s
-.PHONY : src/graphics.s
+src/3d/graphics.s: src/3d/graphics.cpp.s
+.PHONY : src/3d/graphics.s
 
 # target to generate assembly for a file
-src/graphics.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/graphics.cpp.s
-.PHONY : src/graphics.cpp.s
+src/3d/graphics.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/3d/graphics.cpp.s
+.PHONY : src/3d/graphics.cpp.s
 
-src/input.o: src/input.cpp.o
-.PHONY : src/input.o
+src/3d/input.o: src/3d/input.cpp.o
+.PHONY : src/3d/input.o
 
 # target to build an object file
-src/input.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/input.cpp.o
-.PHONY : src/input.cpp.o
+src/3d/input.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/3d/input.cpp.o
+.PHONY : src/3d/input.cpp.o
 
-src/input.i: src/input.cpp.i
-.PHONY : src/input.i
+src/3d/input.i: src/3d/input.cpp.i
+.PHONY : src/3d/input.i
 
 # target to preprocess a source file
-src/input.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/input.cpp.i
-.PHONY : src/input.cpp.i
+src/3d/input.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/3d/input.cpp.i
+.PHONY : src/3d/input.cpp.i
 
-src/input.s: src/input.cpp.s
-.PHONY : src/input.s
+src/3d/input.s: src/3d/input.cpp.s
+.PHONY : src/3d/input.s
 
 # target to generate assembly for a file
-src/input.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/input.cpp.s
-.PHONY : src/input.cpp.s
+src/3d/input.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/3d/input.cpp.s
+.PHONY : src/3d/input.cpp.s
 
-src/main.o: src/main.cpp.o
-.PHONY : src/main.o
+src/3d/main.o: src/3d/main.cpp.o
+.PHONY : src/3d/main.o
 
 # target to build an object file
-src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
+src/3d/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/3d/main.cpp.o
+.PHONY : src/3d/main.cpp.o
 
-src/main.i: src/main.cpp.i
-.PHONY : src/main.i
+src/3d/main.i: src/3d/main.cpp.i
+.PHONY : src/3d/main.i
 
 # target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
+src/3d/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/3d/main.cpp.i
+.PHONY : src/3d/main.cpp.i
 
-src/main.s: src/main.cpp.s
-.PHONY : src/main.s
+src/3d/main.s: src/3d/main.cpp.s
+.PHONY : src/3d/main.s
 
 # target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
+src/3d/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/3d/main.cpp.s
+.PHONY : src/3d/main.cpp.s
 
-src/physics.o: src/physics.cpp.o
-.PHONY : src/physics.o
+src/3d/physics.o: src/3d/physics.cpp.o
+.PHONY : src/3d/physics.o
 
 # target to build an object file
-src/physics.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/physics.cpp.o
-.PHONY : src/physics.cpp.o
+src/3d/physics.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/3d/physics.cpp.o
+.PHONY : src/3d/physics.cpp.o
 
-src/physics.i: src/physics.cpp.i
-.PHONY : src/physics.i
+src/3d/physics.i: src/3d/physics.cpp.i
+.PHONY : src/3d/physics.i
 
 # target to preprocess a source file
-src/physics.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/physics.cpp.i
-.PHONY : src/physics.cpp.i
+src/3d/physics.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/3d/physics.cpp.i
+.PHONY : src/3d/physics.cpp.i
 
-src/physics.s: src/physics.cpp.s
-.PHONY : src/physics.s
+src/3d/physics.s: src/3d/physics.cpp.s
+.PHONY : src/3d/physics.s
 
 # target to generate assembly for a file
-src/physics.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/physics.cpp.s
-.PHONY : src/physics.cpp.s
+src/3d/physics.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/3d/physics.cpp.s
+.PHONY : src/3d/physics.cpp.s
 
 # Help Target
 help:
@@ -234,18 +234,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Blacked_Hole"
-	@echo "... src/graphics.o"
-	@echo "... src/graphics.i"
-	@echo "... src/graphics.s"
-	@echo "... src/input.o"
-	@echo "... src/input.i"
-	@echo "... src/input.s"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
-	@echo "... src/physics.o"
-	@echo "... src/physics.i"
-	@echo "... src/physics.s"
+	@echo "... src/3d/graphics.o"
+	@echo "... src/3d/graphics.i"
+	@echo "... src/3d/graphics.s"
+	@echo "... src/3d/input.o"
+	@echo "... src/3d/input.i"
+	@echo "... src/3d/input.s"
+	@echo "... src/3d/main.o"
+	@echo "... src/3d/main.i"
+	@echo "... src/3d/main.s"
+	@echo "... src/3d/physics.o"
+	@echo "... src/3d/physics.i"
+	@echo "... src/3d/physics.s"
 .PHONY : help
 
 

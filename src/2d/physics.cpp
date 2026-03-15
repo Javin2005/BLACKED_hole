@@ -1,6 +1,6 @@
-#include "physics.hpp"
+#include "2d/physics.hpp"
 #include "raymath.h"
-#include "constants.hpp"
+#include "2d/constants.hpp"
 
 
 /** 
@@ -39,9 +39,9 @@ void UpdatePhysics(std::vector<Photon>& photons, const blackHole& bh, float dt, 
 
         photon.position = Vector2Add(photon.position, Vector2Scale(photon.velocity, dt));
 
-        
-        if(photon.position.x < -100 || photon.position.x > 900 || 
-           photon.position.y < -100 || photon.position.y > 900) {
+        float margin = 200.0f;
+        if(photon.position.x < -margin || photon.position.x > GetScreenWidth() + margin || 
+           photon.position.y < -margin || photon.position.y > GetScreenHeight() + margin) {
              photon.active = false;
         }
     }

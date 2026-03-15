@@ -1,10 +1,10 @@
 #include "raylib.h"
-#include "photon.hpp"
-#include "BlackHole.hpp"
-#include "constants.hpp"
-#include "physics.hpp"   
-#include "graphics.hpp" 
-#include "input.hpp" 
+#include "2d/photon.hpp"
+#include "2d/BlackHole.hpp"
+#include "2d/constants.hpp"
+#include "2d/physics.hpp"   
+#include "2d/graphics.hpp" 
+#include "2d/input.hpp" 
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -12,15 +12,23 @@
 
 
 int main() {
-    InitWindow(800, 800, "Blacked hole");
+
+    SetConfigFlags(FLAG_WINDOW_RESIZABLE | FLAG_MSAA_4X_HINT);
+
+
+    InitWindow(800, 800, "Blacked hole 3");
 
     SetTargetFPS(60);
 
     std::vector<Photon> photons;
-
-    blackHole bh({ 400, 400 }, 10000.0);
-
+    
+    blackHole bh({400, 400}, 10000.0);
+    
     while (!WindowShouldClose()) {
+        if (IsWindowResized()) {
+            bh.position = { (float)GetScreenWidth()/2.0f, (float)GetScreenHeight()/2.0f };
+        }
+
         HandleInput(photons,bh);
         DrawText(TextFormat("Mass: %.0f", (float)bh.mass), 10, 10, 20, GREEN);
        
