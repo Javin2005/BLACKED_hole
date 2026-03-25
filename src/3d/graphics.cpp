@@ -5,6 +5,56 @@
 #include <cmath>
 #include "raymath.h"
 
+
+
+static Color ColorFromShift(float t) {
+    t = fmaxf(0.01f, t);
+    float r = fminf(1.0f, 2.0f/t);
+    float g = fminf(1.0f, fmaxf(0.0f, 1.0f - fabsf(t - 1.0f) * 2.0f));
+    float b = fminf(1.0f, fmaxf(0.0f, (t - 0.5f) * 2.0f));
+    return {(unsigned char)(r*255), (unsigned char)(g*255), (unsigned char)(b*255), 255};
+}
+
+Color GetSpaceColor(Color baseColor, Vector3 velocity, Vector3 position,
+                             Vector3 cameraPos, float distance, float rs) 
+{
+    float beta = 0.0f;
+    Vector3 toCamera = Vector3Subtract(cameraPos, position);
+    float toCamLen = Vector3Length(toCamera);
+    
+    
+    if(toCamLen > 0.001f) {
+        Vector3 dir = Vector3Scale(toCamera, 1.0f/toCamLen);
+        float radialSpeed = Vector3DotProduct(velocity, dir);
+        beta = fmaxf(-0.999f, fminf(0.999f, radialSpeed / (float)C));
+    }
+    float dopplerFactor = sqrtf((1.0f + beta) / (1.0f - beta));
+
+
+
+    float gravFactor = (distance > rs * 1.01f)
+        ? sqrtf(fmaxf(0.0f, 1.0f - rs / distance))
+        : 0.0f;
+
+    float totalShift = dopplerFactor * gravFactor;
+    Color shiftColor = ColorFromShift(totalShift);
+
+    Color result;
+    result.r = (unsigned char)(shiftColor.r * 0.6f + baseColor.r * 0.4f);
+    result.g = (unsigned char)(shiftColor.g * 0.6f + baseColor.g * 0.4f);
+    result.b = (unsigned char)(shiftColor.b * 0.6f + baseColor.b * 0.4f);
+    result.a = 255;
+
+
+    float distFactor = fminf(1.0f, rs * 3.0f / fmaxf(rs,distance));
+    return ColorBrightness(result, distFactor * 0.4f);
+
+}
+
+Color GetSpaceColor(Color baseColor, Vector3 velocity, float distance, float rs) {
+    return GetSpaceColor(baseColor, velocity, {0,0,0}, {0,300,0}, distance, rs);
+}
+
 /** 
  * Draws a Scene(frame) of the space we see
  * @param photolns - a mutable vector of the active and unactive photons
@@ -14,86 +64,57 @@
 void DrawScene(const std::vector<Photon>& photons, const blackHole& bh, Camera3D& camera) {
     BeginDrawing();
     ClearBackground(BLACK);
-
     BeginMode3D(camera);
         
        
-        DrawGrid(20, 10.0f); 
+    DrawGrid(30, 10.0f);
+    
+    float rs = (float)(2.0f * G * bh.mass/(C*C));
 
        
-        DrawSphere(bh.position, bh.eventHorizonRadius + 0.5f, DARKGRAY); 
-        DrawSphere(bh.position, bh.eventHorizonRadius, BLACK);
+    DrawSphereWires(bh.position, rs,       12, 12, {120, 30,  0, 180});
+    DrawSphereWires(bh.position, rs * 1.5f, 8,  8, {80,  80,  0, 80});
+    DrawSphereWires(bh.position, rs * 3.0f, 8,  8, {40,  30,  0, 40});
+    DrawSphere(bh.position, rs * 0.95f, BLACK);  
 
-        BeginBlendMode(BLEND_ADDITIVE);
-        for (const auto& photon : photons) {
-            if (!photon.active) continue;
+    BeginBlendMode(BLEND_ADDITIVE);
+    for (const auto& photon : photons) {
+        if (!photon.active) continue;
 
-            float dist = Vector3Distance(photon.position, bh.position);
-            Color renderColor = GetSpaceColor(photon.baseColor, photon.velocity, dist, bh.eventHorizonRadius);
+        float dist = Vector3Distance(photon.position, bh.position);
+        Color col = GetSpaceColor(photon.baseColor, photon.velocity,photon.position,
+                    camera.position, dist, rs);
 
-            
-            if (photon.historyCount > 1) {
-                for (int i = 0; i < photon.historyCount - 1; i++) {
-                    int currIdx = (photon.historyIndex - photon.historyCount + i + MAX_HISTORY) % MAX_HISTORY;
-                    int nextIdx = (currIdx + 1) % MAX_HISTORY;
-                    float t = (float)i / photon.historyCount;
-                    DrawLine3D(photon.history[currIdx], photon.history[nextIdx], Fade(renderColor, t));
-                }
-            }
-
-            
-            if (photon.body) {
-                DrawSphere(photon.position, 0.5f, renderColor);
+        
+        if (photon.historyCount > 1) {
+            for (int i = 0; i < photon.historyCount - 1; i++) {
+                int currIdx = (photon.historyIndex - photon.historyCount + i + MAX_HISTORY) % MAX_HISTORY;
+                int nextIdx = (currIdx + 1) % MAX_HISTORY;
+                float t = (float)i / photon.historyCount;
+                DrawLine3D(photon.history[currIdx], photon.history[nextIdx], Fade(col, t * 0.8f));
             }
         }
-        EndBlendMode();
+
+        if (photon.body) {
+            DrawSphere(photon.position, 0.4f, col);
+        }
+    }
+    EndBlendMode();
     EndMode3D();
 
-    
-    DrawText(TextFormat("Mass: %.0f", (float)bh.mass), 10, 10, 20, GREEN);
-    DrawText(TextFormat("Photons: %i", (int)photons.size()), 10, 40, 20, BLUE);
-    DrawText("F11: Fullscreen | Mouse: Orbit | Space: Clear | D: Spawn Disk", 10, GetScreenHeight() - 30, 20, GRAY);
 
+    DrawText(TextFormat("Massa: %.0f  Rs: %.1f  Fotonsfar: %.1f",
+            (float)bh.mass, rs, rs*1.5f), 10, 10, 16, GREEN);
+    DrawText(TextFormat("Fotoner: %i  |  Kamera: (%.0f %.0f %.0f)",
+            (int)photons.size(), camera.position.x, camera.position.y, camera.position.z),
+            10, 34, 15, SKYBLUE);
+    DrawText("WASD+QE: flyg  Shift: snabb  D: disk  Space: rensa  Pil: massa  F: fullskarm",
+            10, GetScreenHeight()-26, 13, DARKGRAY);
     EndDrawing();
+EndDrawing();
 }
 
-
-/**
- * Hjälp funktion som kommer att räkna ut doppler effekten. och gravitations effekten vi antar att användaren
- * tittar på svarta hålet från sidan då räknar vi ut om ljuset är på väg mot eller
- * ifrån användaren blir lite kostigt just nu i 2 d
- * @param baseColor - vilken färg den har i början
- * @param velocity hur snabbt den rör sig
- */
-Color GetSpaceColor(Color baseColor, Vector3 velocity, float distance, float rs) {
-
-    float speedRatio = velocity.y / (float)C;
-    float brightness = -speedRatio * 0.8f;
-    Color shiftedColor = baseColor;
-
-    if (speedRatio < 0) { //<- mot oss blir blåare
-        shiftedColor.r = (unsigned char)fmin(255, shiftedColor.r + 100 * fabs(speedRatio));
-        shiftedColor.g = (unsigned char)fmin(255, shiftedColor.g + 100 * fabs(speedRatio));
-        shiftedColor.b = 255; 
-    } else {//<- ifrån oss blir rödare 
-        
-        shiftedColor.r = 200; 
-        shiftedColor.g = (unsigned char)(shiftedColor.g * (1.0f - speedRatio));
-        shiftedColor.b = (unsigned char)(shiftedColor.b * (1.0f - speedRatio));
-    }
-
-
-    float distFactor = distance / (rs * 4.0f); 
-    if (distFactor < 1.0f) {
-        shiftedColor.g = (unsigned char)(shiftedColor.g * distFactor);
-        shiftedColor.b = (unsigned char)(shiftedColor.b * distFactor);
-        brightness -= (1.0f - distFactor) * 0.5f;
-    }
-
-    return ColorBrightness(shiftedColor, brightness);
-}
 
 void DrawLine3DEx(Vector3 startPos, Vector3 endPos, float thickness, Color color) {
-    float radius = thickness / 2.0f;
-    DrawCylinderEx(startPos, endPos, radius, radius, 8, color);
+    DrawCylinderEx(startPos, endPos, thickness/2.0f, thickness/2.0f, 8, color);
 }
