@@ -42,7 +42,7 @@
          const int subSteps = 8;
          float dt = GetFrameTime();
          for (int i = 0; i < subSteps; i++) {
-             UpdatePhysics(photons, bh, dt / subSteps, (i == 0));
+             UpdatePhysics(photons, bh, dt / subSteps, true);
          }
  
          DrawScene(photons, bh, camera);

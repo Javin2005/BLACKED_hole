@@ -5,7 +5,7 @@
 #include <vector>
 
 
-constexpr int MAX_HISTORY = 100;
+constexpr int MAX_HISTORY = 300;
 
 struct Photon {
     Vector3 position;

@@ -35,7 +35,7 @@ void UpdateFreeCamera(Camera3D& camera) {
 
     }
 
-    //Ai genererad wasd movment shot me!
+    
     Vector3 forward = Vector3Normalize(Vector3Subtract(camera.target, camera.position));
     Vector3 right   = Vector3Normalize(Vector3CrossProduct(forward, {0, 1, 0}));
     
@@ -74,7 +74,7 @@ void HandleInput(std::vector<Photon>& photons, blackHole& bh, Camera3D& camera) 
     UpdateFreeCamera(camera);
  
     
-    if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+    if (IsKeyDown(KEY_K)) {
         
         Ray ray = GetMouseRay(GetMousePosition(), camera);
  
