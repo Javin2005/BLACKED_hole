@@ -67,7 +67,7 @@ void DrawScene(const std::vector<Photon>& photons, const blackHole& bh, Camera3D
     BeginMode3D(camera);
         
        
-    DrawGrid(30, 10.0f);
+    //DrawGrid(30, 10.0f);
     
     float rs = (float)(2.0f * G * bh.mass/(C*C));
 
@@ -111,7 +111,6 @@ void DrawScene(const std::vector<Photon>& photons, const blackHole& bh, Camera3D
     DrawText("WASD+QE: flyg  Shift: snabb  D: disk  Space: rensa  Pil: massa  F: fullskarm",
             10, GetScreenHeight()-26, 13, DARKGRAY);
     EndDrawing();
-EndDrawing();
 }
 
 

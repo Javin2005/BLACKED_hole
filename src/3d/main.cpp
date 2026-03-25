@@ -30,7 +30,7 @@
          HandleInput(photons, bh, camera);
  
          
-         if (photons.size() > 3000) {
+         if (photons.size() > 30000) {
              photons.erase(
                  std::remove_if(photons.begin(), photons.end(),
                      [](const Photon& p) { return !p.active; }),

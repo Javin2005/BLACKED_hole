@@ -80,7 +80,7 @@ static State RK4Step(const State& s, const blackHole& bh, float dt){
  * Updates the physics for a photon
  * @param photons - a mutable vector of the active and unactive photons
  * @param blackHole - a blackHole object
- * 
+ * blabla yap yap
  * */ 
 void UpdatePhysics(std::vector<Photon>& photons, const blackHole& bh, float dt, bool saveHistory) {
     for(auto& photon : photons) {
@@ -88,8 +88,7 @@ void UpdatePhysics(std::vector<Photon>& photons, const blackHole& bh, float dt, 
 
         if(saveHistory) photon.savePosition();
 
-        
-        float dist = Vector3Distance(photon.position,bh.position);
+        float dist = Vector3Distance(photon.position, bh.position);
         
         if(dist < bh.eventHorizonRadius) {
             photon.active = false;
@@ -97,23 +96,19 @@ void UpdatePhysics(std::vector<Photon>& photons, const blackHole& bh, float dt, 
         }
 
         State current = {photon.position, photon.velocity};
-        State next = RK4Step(current,bh,dt);
+        State next = RK4Step(current, bh, dt);
 
-
-        photon.position = next.pos;
+        photon.position = next.pos; 
         photon.velocity = next.vel;
 
-        
         float speed = Vector3Length(photon.velocity);
         if(speed > (float)C) {
             photon.velocity = Vector3Scale(photon.velocity, (float)C / speed);
         }
 
         
-        photon.position = Vector3Add(photon.position, Vector3Scale(photon.velocity, dt));
 
-        
-        float maxDistance = 2000.0f; 
+        float maxDistance = 20000.0f; 
         if(dist > maxDistance) {
              photon.active = false;
         }
@@ -121,32 +116,26 @@ void UpdatePhysics(std::vector<Photon>& photons, const blackHole& bh, float dt, 
 }
 
 
-/**
- * FUCKKKK gör kommentaren sen har inte riktigt fått det att funka 
- */
-
- void SpawnDisk(std::vector<Photon>& photons, const blackHole& bh, int count) {
+void SpawnDisk(std::vector<Photon>& photons, const blackHole& bh, int count) {
     float rs    = (float)(2.0 * G * bh.mass/(C*C));
     float r_min = rs * 3.0f;
-    float r_max = rs*10.0f;
-
+    float r_max = rs * 10.0f;
 
     for(int i = 0; i < count; i++ ) {
 
-        float dist  = r_min * (float)GetRandomValue(0, 1000) / 1000.0f * (r_max - r_min);
+        
+        float dist  = r_min + ((float)GetRandomValue(0, 1000) / 1000.0f) * (r_max - r_min);
+        float angle = (float)GetRandomValue(0, 360) * DEG2RAD;
 
-        float angle = (float)GetRandomValue(0,360) * DEG2RAD;
-
+        
         Vector3 pos = {
-            bh.position.x * cosf(angle) * dist,
-            bh.position.y * (float)GetRandomValue(-3,3),
-            bh.position.z * sinf(angle) * dist
-
+            bh.position.x + cosf(angle) * dist,
+            bh.position.y + (float)GetRandomValue(-3, 3), 
+            bh.position.z + sinf(angle) * dist
         };
 
-
-        float v_kepler  = sqrtf((float)(G*bh.mass)/dist);
-        float gr_boost  = sqrtf(1.0f + rs/(2.0f * dist));
+        float v_kepler  = sqrtf((float)(G * bh.mass) / dist);
+        float gr_boost  = sqrtf(1.0f + rs / (2.0f * dist));
         float speed     = v_kepler * gr_boost;
 
         Vector3 vel = {
@@ -156,10 +145,8 @@ void UpdatePhysics(std::vector<Photon>& photons, const blackHole& bh, float dt, 
         };
 
         Color diskColor[] = {ORANGE, YELLOW, RED, GOLD, {255, 140, 0, 255}};
-        Color randomColor = diskColor[GetRandomValue(0,4)];
-
+        Color randomColor = diskColor[GetRandomValue(0, 4)];
 
         photons.push_back({pos, vel, {}, 0, 0, true, randomColor, false});
-
     }
 }

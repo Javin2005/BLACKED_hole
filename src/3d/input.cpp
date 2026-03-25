@@ -9,9 +9,9 @@
 
 
 
-void UpdateFreeCamera(Camera3D camera) {
+void UpdateFreeCamera(Camera3D& camera) {
 
-    if(IsMouseButtonDown(MOUSE_BUTTON_RIGHT)) {
+    if(IsKeyDown(KEY_L)) {
         Vector2 delta = GetMouseDelta();
 
         float yaw = -delta.x * 0.003f;
@@ -95,7 +95,7 @@ void HandleInput(std::vector<Photon>& photons, blackHole& bh, Camera3D& camera) 
     if (IsKeyDown(KEY_DOWN)) bh.addMass(-50.0);
  
    
-    if (IsKeyDown(KEY_D)) {
+    if (IsKeyDown(KEY_P)) {
         SpawnDisk(photons, bh, 30);
     }
  
