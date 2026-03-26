@@ -2,6 +2,7 @@
 
 #include "BlackHole.hpp"
 #include "Photon.hpp"
+#include "RayTracer.hpp"
 #include "Constants.hpp"
 #include "raylib.h"
 #include <vector>
@@ -22,14 +23,22 @@ public:
     void clearPhotons();
 
     BlackHole& getBlackHole() {return blackHole_;}
-    const BlackHole& getBlackHole() const { return blackHole_; }
+    const BlackHole& getBlackHole() const { return blackHole_;}
 
     int getPhotonCount() const { return (int)photons_.size();}
+
+    void toggleRayTracing() {rayTracingEnabled_ = !rayTracingEnabled_ ;}
+    bool isRayTracingEnabled() const { return rayTracingEnabled_;}
+
+
 
 private:
     BlackHole blackHole_;
     std::vector<Photon> photons_;
+    RayTracer rayTracer_;
+    bool rayTracingEnabled_ = false;
     int subSteps_=8;
+    mutable int renderFrameSkip_ = 0;
 
     void updatePhoton(Photon& p, float dt) const;
 

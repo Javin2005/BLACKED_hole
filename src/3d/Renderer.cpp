@@ -86,7 +86,7 @@ Color Renderer::computeColor(const Photon& p, Vector3 cameraPos, float rs) {
 }
 
 
-//openGL kod genererad av claude orkade inte sätta mig in i vertex lära. huvudsakligen störtsta optimeringeng för tids komplexitet. sätt in dig i den.
+//openGL kod genererad av claude orkade inte sätta mig in i vertex lära. huvudsakligen störtsta optimeringeng för tids komplexitet. sätt in dig i de! senare Javin. enlight youtube super coolt går från 9000000 beräkningar till 1
 void Renderer::drawAllTrails(const std::vector<Photon>& photons,
     const BlackHole& bh,
     Vector3 cameraPos) {
