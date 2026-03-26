@@ -1,3 +1,5 @@
+#pragma once
+
 #include "BlackHole.hpp"
 #include "Photon.hpp"
 #include "Constants.hpp"
@@ -19,7 +21,7 @@ public:
 
     void clearPhotons();
 
-    BlackHole& getBlackHole() {return BlackHole_:}
+    BlackHole& getBlackHole() {return blackHole_;}
     const BlackHole& getBlackHole() const { return blackHole_; }
 
     int getPhotonCount() const { return (int)photons_.size();}
@@ -29,9 +31,9 @@ private:
     std::vector<Photon> photons_;
     int subSteps_=8;
 
-    void updatePhoton(Photons& p, float dt) const;
+    void updatePhoton(Photon& p, float dt) const;
 
     void removeDeadPhotons();
 
     Vector3 computeAcceleration(Vector3 pos) const;
-}
+};

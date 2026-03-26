@@ -1,3 +1,4 @@
+#pragma once
 #include "raylib.h"
 
 
@@ -21,7 +22,7 @@ struct Photon {
         history[historyIndex] = position;
         historyIndex = (historyIndex + 1) % MAX_HISTORY;
         if ( historyCount < MAX_HISTORY) historyCount++;
-    }
+    };
 
     void reset( Vector3 pos, Vector3 vel, Color color, bool isBody) {
 
@@ -32,10 +33,10 @@ struct Photon {
         active       = true;
         historyIndex = 0;
         historyCount = 0;
-    }
+    };
 
 
-}
+};
 
 
 
