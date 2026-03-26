@@ -6,11 +6,11 @@ set(CMAKE_CXX_STANDARD 17)
 
 if(APPLE)
     list(APPEND CMAKE_PREFIX_PATH "/opt/homebrew")
-elseif(WIN32)
-    list(APPEND CMAKE_PREFIX_PATH "C:/raylib/raylib/lib/cmake/raylib")
+else()
+    # Linux / WSL (Homebrew on Linux installs here)
+    list(APPEND CMAKE_PREFIX_PATH "/home/linuxbrew/.linuxbrew")
 endif()
 find_package(raylib REQUIRED)
-
 
 file(GLOB SOURCES "src/3d/*.cpp")
 
