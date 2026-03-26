@@ -16,7 +16,7 @@ file(GLOB SOURCES "src/3d/*.cpp")
 
 add_executable(Blacked_Hole ${SOURCES})
 
-target_include_directories(Blacked_Hole PRIVATE include)
+target_include_directories(Blacked_Hole PRIVATE include/3d)
 
 target_link_libraries(Blacked_Hole raylib)
 

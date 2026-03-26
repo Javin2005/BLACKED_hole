@@ -3,6 +3,48 @@
 #include "raymath.h"
 #include "rlgl.h"      
 #include <cmath>
+#include <cstdlib> 
+
+
+
+static std::vector<Vector3> starPositions;
+
+void Renderer::initStars() {
+    srand(42);
+    starPositions.reserve(2000);
+    for (int i = 0; i < 2000; i++) {
+        float x = (float)(rand() % 2000 - 1000);
+        float y = (float)(rand() % 2000 - 1000);
+        float z = (float)(rand() % 2000 - 1000);
+        float len = sqrtf(x*x + y*y + z*z);
+        if (len < 0.001f) continue;
+        starPositions.push_back({ x/len*4000.0f, y/len*4000.0f, z/len*4000.0f });
+    }
+}
+
+void Renderer::drawStars(const Camera3D& camera) {
+    
+    Vector3 toBH = Vector3Normalize(Vector3Subtract({0,0,0}, camera.position));
+    float   bhScreenRadius = 40.0f; // 
+
+    int w = GetScreenWidth();
+    int h = GetScreenHeight();
+
+    for (const auto& s : starPositions) {
+       
+        Vector3 toStar = Vector3Normalize(Vector3Subtract(s, camera.position));
+
+        
+        float dot = Vector3DotProduct(toBH, toStar);
+        if (dot > 0.998f) continue;  
+
+        Vector2 screen = GetWorldToScreen(s, camera);
+        if (screen.x >= 0 && screen.x < w &&
+            screen.y >= 0 && screen.y < h) {
+            DrawPixel((int)screen.x, (int)screen.y, WHITE);
+        }
+    }
+}
 
 
 static Color colorFromShift(float t) {
@@ -89,9 +131,10 @@ void Renderer::drawFrame(const std::vector<Photon>& photons,
     const Camera3D& camera) {
     BeginDrawing();
     ClearBackground(BLACK);
+    rlSetClipPlanes(0.1f, 6000.0f);
     BeginMode3D(camera);
 
-    DrawGrid(30, 10.0f);
+    //DrawGrid(30, 10.0f);
 
     float rs = bh.getRadius();
     Vector3 bhPos = bh.getPosition();
@@ -116,10 +159,13 @@ void Renderer::drawFrame(const std::vector<Photon>& photons,
     EndBlendMode();
 
     EndMode3D();
-
+    drawStars(camera);
     drawHUD(photons, bh, camera);
     EndDrawing();
 }
+
+
+
 
 void Renderer::drawHUD(const std::vector<Photon>& photons,
     const BlackHole& bh,

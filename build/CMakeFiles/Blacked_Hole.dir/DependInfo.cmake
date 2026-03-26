@@ -8,10 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/javinbejmar/Project/BLACKED_hole/src/3d/graphics.cpp" "CMakeFiles/Blacked_Hole.dir/src/3d/graphics.cpp.o" "gcc" "CMakeFiles/Blacked_Hole.dir/src/3d/graphics.cpp.o.d"
-  "/Users/javinbejmar/Project/BLACKED_hole/src/3d/input.cpp" "CMakeFiles/Blacked_Hole.dir/src/3d/input.cpp.o" "gcc" "CMakeFiles/Blacked_Hole.dir/src/3d/input.cpp.o.d"
+  "/Users/javinbejmar/Project/BLACKED_hole/src/3d/Inputhandler.cpp" "CMakeFiles/Blacked_Hole.dir/src/3d/Inputhandler.cpp.o" "gcc" "CMakeFiles/Blacked_Hole.dir/src/3d/Inputhandler.cpp.o.d"
+  "/Users/javinbejmar/Project/BLACKED_hole/src/3d/Renderer.cpp" "CMakeFiles/Blacked_Hole.dir/src/3d/Renderer.cpp.o" "gcc" "CMakeFiles/Blacked_Hole.dir/src/3d/Renderer.cpp.o.d"
+  "/Users/javinbejmar/Project/BLACKED_hole/src/3d/Simulation.cpp" "CMakeFiles/Blacked_Hole.dir/src/3d/Simulation.cpp.o" "gcc" "CMakeFiles/Blacked_Hole.dir/src/3d/Simulation.cpp.o.d"
   "/Users/javinbejmar/Project/BLACKED_hole/src/3d/main.cpp" "CMakeFiles/Blacked_Hole.dir/src/3d/main.cpp.o" "gcc" "CMakeFiles/Blacked_Hole.dir/src/3d/main.cpp.o.d"
-  "/Users/javinbejmar/Project/BLACKED_hole/src/3d/physics.cpp" "CMakeFiles/Blacked_Hole.dir/src/3d/physics.cpp.o" "gcc" "CMakeFiles/Blacked_Hole.dir/src/3d/physics.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

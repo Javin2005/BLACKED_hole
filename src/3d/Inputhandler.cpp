@@ -5,7 +5,7 @@
 
 void InputHandler::updateCamera(Camera3D& camera) {
     
-    if (IsMouseButtonDown(MOUSE_BUTTON_RIGHT)) {
+    if (IsKeyDown(KEY_L)) {
         Vector2 delta = GetMouseDelta();
         yaw_   -= delta.x * 0.003f;
         pitch_ -= delta.y * 0.003f;
@@ -31,8 +31,8 @@ void InputHandler::updateCamera(Camera3D& camera) {
 
     if (IsKeyDown(KEY_W)) camera.position = Vector3Add(camera.position, Vector3Scale(forward,  speed));
     if (IsKeyDown(KEY_S)) camera.position = Vector3Add(camera.position, Vector3Scale(forward, -speed));
-    if (IsKeyDown(KEY_D)) camera.position = Vector3Add(camera.position, Vector3Scale(right,    speed));
-    if (IsKeyDown(KEY_A)) camera.position = Vector3Add(camera.position, Vector3Scale(right,   -speed));
+    if (IsKeyDown(KEY_A)) camera.position = Vector3Add(camera.position, Vector3Scale(right,    speed));
+    if (IsKeyDown(KEY_D)) camera.position = Vector3Add(camera.position, Vector3Scale(right,   -speed));
     if (IsKeyDown(KEY_E)) camera.position.y += speed;
     if (IsKeyDown(KEY_Q)) camera.position.y -= speed;
 
