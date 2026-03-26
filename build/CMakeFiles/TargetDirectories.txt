@@ -1,3 +1,0 @@
-/home/samuel/project/black-hole/BLACKED_hole/build/CMakeFiles/Blacked_Hole.dir
-/home/samuel/project/black-hole/BLACKED_hole/build/CMakeFiles/edit_cache.dir
-/home/samuel/project/black-hole/BLACKED_hole/build/CMakeFiles/rebuild_cache.dir
