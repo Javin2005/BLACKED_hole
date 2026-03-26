@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/javinbejmar/Project/BLACKED_hole/src/3d/Inputhandler.cpp" "CMakeFiles/Blacked_Hole.dir/src/3d/Inputhandler.cpp.o" "gcc" "CMakeFiles/Blacked_Hole.dir/src/3d/Inputhandler.cpp.o.d"
+  "/Users/javinbejmar/Project/BLACKED_hole/src/3d/RayTracer.cpp" "CMakeFiles/Blacked_Hole.dir/src/3d/RayTracer.cpp.o" "gcc" "CMakeFiles/Blacked_Hole.dir/src/3d/RayTracer.cpp.o.d"
   "/Users/javinbejmar/Project/BLACKED_hole/src/3d/Renderer.cpp" "CMakeFiles/Blacked_Hole.dir/src/3d/Renderer.cpp.o" "gcc" "CMakeFiles/Blacked_Hole.dir/src/3d/Renderer.cpp.o.d"
   "/Users/javinbejmar/Project/BLACKED_hole/src/3d/Simulation.cpp" "CMakeFiles/Blacked_Hole.dir/src/3d/Simulation.cpp.o" "gcc" "CMakeFiles/Blacked_Hole.dir/src/3d/Simulation.cpp.o.d"
   "/Users/javinbejmar/Project/BLACKED_hole/src/3d/main.cpp" "CMakeFiles/Blacked_Hole.dir/src/3d/main.cpp.o" "gcc" "CMakeFiles/Blacked_Hole.dir/src/3d/main.cpp.o.d"

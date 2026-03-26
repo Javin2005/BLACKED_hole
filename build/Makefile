@@ -153,6 +153,30 @@ src/3d/Inputhandler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/3d/Inputhandler.cpp.s
 .PHONY : src/3d/Inputhandler.cpp.s
 
+src/3d/RayTracer.o: src/3d/RayTracer.cpp.o
+.PHONY : src/3d/RayTracer.o
+
+# target to build an object file
+src/3d/RayTracer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/3d/RayTracer.cpp.o
+.PHONY : src/3d/RayTracer.cpp.o
+
+src/3d/RayTracer.i: src/3d/RayTracer.cpp.i
+.PHONY : src/3d/RayTracer.i
+
+# target to preprocess a source file
+src/3d/RayTracer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/3d/RayTracer.cpp.i
+.PHONY : src/3d/RayTracer.cpp.i
+
+src/3d/RayTracer.s: src/3d/RayTracer.cpp.s
+.PHONY : src/3d/RayTracer.s
+
+# target to generate assembly for a file
+src/3d/RayTracer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Blacked_Hole.dir/build.make CMakeFiles/Blacked_Hole.dir/src/3d/RayTracer.cpp.s
+.PHONY : src/3d/RayTracer.cpp.s
+
 src/3d/Renderer.o: src/3d/Renderer.cpp.o
 .PHONY : src/3d/Renderer.o
 
@@ -237,6 +261,9 @@ help:
 	@echo "... src/3d/Inputhandler.o"
 	@echo "... src/3d/Inputhandler.i"
 	@echo "... src/3d/Inputhandler.s"
+	@echo "... src/3d/RayTracer.o"
+	@echo "... src/3d/RayTracer.i"
+	@echo "... src/3d/RayTracer.s"
 	@echo "... src/3d/Renderer.o"
 	@echo "... src/3d/Renderer.i"
 	@echo "... src/3d/Renderer.s"

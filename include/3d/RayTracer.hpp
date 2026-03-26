@@ -9,7 +9,7 @@
 class RayTracer {
 public:
     static constexpr int RENDER_W = 320;
-    static constexpr int rENDER_H = 180;
+    static constexpr int RENDER_H = 180;
 
     static constexpr int MAX_STEPS = 500;
     static constexpr float STEP_SIZE = 0.8f;
@@ -25,9 +25,9 @@ public:
     void uploadTexture();
 
 private:
-    Image image;
+    Image image_;
     Texture2D texture_;
-    bool textarueReady_ = false;
+    bool textureReady_ = false;
 
     Color tracePixel(int px, int py, const Camera3D& camera, const BlackHole& bh) const;
 

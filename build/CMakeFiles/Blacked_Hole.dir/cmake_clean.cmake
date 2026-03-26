@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "Blacked_Hole.pdb"
   "CMakeFiles/Blacked_Hole.dir/src/3d/Inputhandler.cpp.o"
   "CMakeFiles/Blacked_Hole.dir/src/3d/Inputhandler.cpp.o.d"
+  "CMakeFiles/Blacked_Hole.dir/src/3d/RayTracer.cpp.o"
+  "CMakeFiles/Blacked_Hole.dir/src/3d/RayTracer.cpp.o.d"
   "CMakeFiles/Blacked_Hole.dir/src/3d/Renderer.cpp.o"
   "CMakeFiles/Blacked_Hole.dir/src/3d/Renderer.cpp.o.d"
   "CMakeFiles/Blacked_Hole.dir/src/3d/Simulation.cpp.o"
