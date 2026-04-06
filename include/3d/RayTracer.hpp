@@ -39,7 +39,7 @@ private:
 
     Color skyColor(Vector3 direction) const;
 
-    Color diskColor(Vector3 pos, BlackHole& bh) const;
+    Color diskColor(Vector3 pos, const BlackHole& bh) const;
 
 };
 

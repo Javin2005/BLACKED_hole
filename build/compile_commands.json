@@ -1,31 +1,31 @@
 [
 {
   "directory": "/Users/javinbejmar/Project/BLACKED_hole/build",
-  "command": "/usr/bin/c++  -I/Users/javinbejmar/Project/BLACKED_hole/include/3d -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -g -o CMakeFiles/Blacked_Hole.dir/src/3d/Inputhandler.cpp.o -c /Users/javinbejmar/Project/BLACKED_hole/src/3d/Inputhandler.cpp",
+  "command": "/usr/bin/clang++  -I/Users/javinbejmar/Project/BLACKED_hole/include/3d -isystem /opt/homebrew/include -g -std=gnu++17 -arch arm64 -g -o CMakeFiles/Blacked_Hole.dir/src/3d/Inputhandler.cpp.o -c /Users/javinbejmar/Project/BLACKED_hole/src/3d/Inputhandler.cpp",
   "file": "/Users/javinbejmar/Project/BLACKED_hole/src/3d/Inputhandler.cpp",
   "output": "CMakeFiles/Blacked_Hole.dir/src/3d/Inputhandler.cpp.o"
 },
 {
   "directory": "/Users/javinbejmar/Project/BLACKED_hole/build",
-  "command": "/usr/bin/c++  -I/Users/javinbejmar/Project/BLACKED_hole/include/3d -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -g -o CMakeFiles/Blacked_Hole.dir/src/3d/RayTracer.cpp.o -c /Users/javinbejmar/Project/BLACKED_hole/src/3d/RayTracer.cpp",
+  "command": "/usr/bin/clang++  -I/Users/javinbejmar/Project/BLACKED_hole/include/3d -isystem /opt/homebrew/include -g -std=gnu++17 -arch arm64 -g -o CMakeFiles/Blacked_Hole.dir/src/3d/RayTracer.cpp.o -c /Users/javinbejmar/Project/BLACKED_hole/src/3d/RayTracer.cpp",
   "file": "/Users/javinbejmar/Project/BLACKED_hole/src/3d/RayTracer.cpp",
   "output": "CMakeFiles/Blacked_Hole.dir/src/3d/RayTracer.cpp.o"
 },
 {
   "directory": "/Users/javinbejmar/Project/BLACKED_hole/build",
-  "command": "/usr/bin/c++  -I/Users/javinbejmar/Project/BLACKED_hole/include/3d -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -g -o CMakeFiles/Blacked_Hole.dir/src/3d/Renderer.cpp.o -c /Users/javinbejmar/Project/BLACKED_hole/src/3d/Renderer.cpp",
+  "command": "/usr/bin/clang++  -I/Users/javinbejmar/Project/BLACKED_hole/include/3d -isystem /opt/homebrew/include -g -std=gnu++17 -arch arm64 -g -o CMakeFiles/Blacked_Hole.dir/src/3d/Renderer.cpp.o -c /Users/javinbejmar/Project/BLACKED_hole/src/3d/Renderer.cpp",
   "file": "/Users/javinbejmar/Project/BLACKED_hole/src/3d/Renderer.cpp",
   "output": "CMakeFiles/Blacked_Hole.dir/src/3d/Renderer.cpp.o"
 },
 {
   "directory": "/Users/javinbejmar/Project/BLACKED_hole/build",
-  "command": "/usr/bin/c++  -I/Users/javinbejmar/Project/BLACKED_hole/include/3d -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -g -o CMakeFiles/Blacked_Hole.dir/src/3d/Simulation.cpp.o -c /Users/javinbejmar/Project/BLACKED_hole/src/3d/Simulation.cpp",
+  "command": "/usr/bin/clang++  -I/Users/javinbejmar/Project/BLACKED_hole/include/3d -isystem /opt/homebrew/include -g -std=gnu++17 -arch arm64 -g -o CMakeFiles/Blacked_Hole.dir/src/3d/Simulation.cpp.o -c /Users/javinbejmar/Project/BLACKED_hole/src/3d/Simulation.cpp",
   "file": "/Users/javinbejmar/Project/BLACKED_hole/src/3d/Simulation.cpp",
   "output": "CMakeFiles/Blacked_Hole.dir/src/3d/Simulation.cpp.o"
 },
 {
   "directory": "/Users/javinbejmar/Project/BLACKED_hole/build",
-  "command": "/usr/bin/c++  -I/Users/javinbejmar/Project/BLACKED_hole/include/3d -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -g -o CMakeFiles/Blacked_Hole.dir/src/3d/main.cpp.o -c /Users/javinbejmar/Project/BLACKED_hole/src/3d/main.cpp",
+  "command": "/usr/bin/clang++  -I/Users/javinbejmar/Project/BLACKED_hole/include/3d -isystem /opt/homebrew/include -g -std=gnu++17 -arch arm64 -g -o CMakeFiles/Blacked_Hole.dir/src/3d/main.cpp.o -c /Users/javinbejmar/Project/BLACKED_hole/src/3d/main.cpp",
   "file": "/Users/javinbejmar/Project/BLACKED_hole/src/3d/main.cpp",
   "output": "CMakeFiles/Blacked_Hole.dir/src/3d/main.cpp.o"
 }
