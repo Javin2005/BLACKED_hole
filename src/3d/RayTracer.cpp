@@ -41,7 +41,7 @@ Vector3 RayTracer::computeRayDir(int px, int py, const Camera3D& camera) const {
 
     );
 
-    Vector3Normalize(dir);
+    return Vector3Normalize(dir);
 }
 
 
@@ -164,7 +164,7 @@ Color RayTracer::tracePixel(int px, int py, const Camera3D& camera, const BlackH
         Vector3 pos4 = Vector3Add(pos, Vector3Scale(k3p, dt));
         Vector3 vel4 = Vector3Add(vel, Vector3Scale(k3v, dt * 0.5f));
         Vector3 k4v = computeAcceleration(pos4, bh);
-        Vector3 k4p = vel4; // kanske ska ändra till vel3 för mer konsistant
+        Vector3 k4p = vel3; // kanske ska ändra till vel3 för mer konsistant
 
         prevY = pos.y;
         pos = Vector3Add(pos, Vector3Scale(
@@ -185,7 +185,7 @@ Color RayTracer::tracePixel(int px, int py, const Camera3D& camera, const BlackH
 }
 
 
-void RayTracer::render(const Camera& camera, const BlackHole& bh){
+void RayTracer::render(const Camera3D& camera, const BlackHole& bh){
     Color* pixels = (Color*)image_.data;
 
     for (int py = 0; py < RENDER_H; py++) {

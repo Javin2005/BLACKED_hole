@@ -142,5 +142,12 @@ void Simulation::clearPhotons() { photons_.clear(); }
 #include "Renderer.hpp"
 
 void Simulation::draw(const Camera3D& camera) const {
-    Renderer::drawFrame(photons_, blackHole_, camera);
+    if (rayTracingEnabled_) {
+        renderFrameSkip_++;
+        if (renderFrameSkip_ % 2 == 0) {
+            rayTracer_.render(camera, blackHole_);
+            rayTracer_.uploadTexture();
+        }
+    } 
+    Renderer::drawFrame(photons_, blackHole_, camera, rayTracingEnabled_ ? &rayTracer_.getTexture() : nullptr);
 }

@@ -10,7 +10,9 @@ class Renderer {
 
 public: 
     static void drawFrame(const std::vector<Photon>& photons,
-                            const BlackHole& bh, const Camera3D& camera );
+                            const BlackHole& bh, 
+                            const Camera3D& camera,
+                            const Texture2D* rtTexture = nullptr );
     static void initStars();  
     static void drawStars(const Camera3D& camera);
 

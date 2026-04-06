@@ -127,12 +127,18 @@ void Renderer::drawAllTrails(const std::vector<Photon>& photons,
 }
 
 void Renderer::drawFrame(const std::vector<Photon>& photons,
-    const BlackHole& bh,
-    const Camera3D& camera) {
+                            const BlackHole& bh,
+                            const Camera3D& camera,
+                            const Texture2D* rtTexture) {
     BeginDrawing();
     ClearBackground(BLACK);
     rlSetClipPlanes(0.1f, 6000.0f);
     BeginMode3D(camera);
+    if (rtTexture) {
+        Rectangle src = { 0, 0, (float)rtTexture->width, (float)rtTexture->height };
+        Rectangle dst = { 0, 0, (float)GetScreenWidth(), (float)GetScreenHeight() };
+        DrawTexturePro(*rtTexture, src, dst, {0,0}, 0.0f, WHITE);
+    }
 
     //DrawGrid(30, 10.0f);
 
@@ -180,6 +186,6 @@ void Renderer::drawHUD(const std::vector<Photon>& photons,
     DrawText(TextFormat("Kamera: (%.0f %.0f %.0f)",
     camera.position.x, camera.position.y, camera.position.z),
     10, 56, 14, GRAY);
-    DrawText("WASD+QE: flyg  Shift: snabb  D: disk  Space: rensa  Pil: massa  R: reset  F: fullskarm",
-    10, GetScreenHeight()-26, 13, DARKGRAY);
+    DrawText("T: ray trace  WASD+QE: flyg  D: disk  Space: rensa  Pil: massa  R: reset",
+        10, GetScreenHeight()-26, 13, DARKGRAY);
 }

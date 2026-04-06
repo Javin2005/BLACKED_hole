@@ -76,4 +76,6 @@ void InputHandler::handleInput(Simulation& sim, Camera3D& camera) {
         else { int m = GetCurrentMonitor(); SetWindowSize(GetMonitorWidth(m), GetMonitorHeight(m)); }
         ToggleFullscreen();
     }
+
+    if (IsKeyPressed(KEY_T)) sim.toggleRayTracing();
 }
